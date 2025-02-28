@@ -12,15 +12,17 @@
     <div class="calculadora-1-zone">
         <h3>Binário para Decimal:</h3>
         <div class="inputs-binario-decimal">
-            <div class="input-div">
-                <label for="valor-binario-1">Binário</label>
-                <input type="number" id="valor-binario-1">
-            </div>
-            <i class="fa-solid fa-arrow-right seta"></i>
-            <div class="input-div">
-                <label for="valor-decimal-1">Decimal</label>
-                <input type="text" id="valor-decimal-1" readonly>
-            </div>
+            <form action="get">
+                <div class="input-div">
+                    <label for="valor-binario-1">Binário</label>
+                    <input type="number" id="valor-binario-1">
+                </div>
+                <i class="fa-solid fa-arrow-right seta"></i>
+                <div class="input-div">
+                    <label for="valor-decimal-1">Decimal</label>
+                    <input type="text" id="valor-decimal-1" readonly>
+                </div>
+            </form>
         </div>
         <input type="button" value="Calcular" id="botao-calcular-bin-dec" class="botao-calcular">
     </div>
