@@ -24,3 +24,29 @@ $botaoCalcularBinDec.addEventListener('click',(event)=>{
 
   $decimal1.value = numeroDecimalConvertido
 })
+
+let $botaoCalcularDecBin = document.querySelector("#botao-calcular-dec-bin")
+$botaoCalcularDecBin.addEventListener('click',(event)=>{
+  event.preventDefault
+
+  let $binario2 = document.querySelector("#valor-binario-2")
+  let decimal2 = document.querySelector("#valor-decimal-2").value
+
+  let arrayDeBinarios = []
+  let quociente = Math.floor(decimal2 / 2)
+  let primeiroResto = decimal2 %2
+
+  arrayDeBinarios.push(primeiroResto)
+  
+  let resto = 0
+
+  while (quociente > 0) {
+
+    resto = quociente %2
+
+    arrayDeBinarios.push(resto)
+    quociente = Math.floor(quociente / 2)
+
+  }
+  $binario2.value = arrayDeBinarios.reverse().join("")
+})
