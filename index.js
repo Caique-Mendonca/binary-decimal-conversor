@@ -1,3 +1,4 @@
+// Calculadora Binário p/ Decimal
 document.querySelector("#valor-binario-1").addEventListener('keydown', (event)=>{
     if (!["0", "1", "Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab"].includes(event.key)) {
         event.preventDefault();
@@ -25,6 +26,7 @@ $botaoCalcularBinDec.addEventListener('click',(event)=>{
   $decimal1.value = numeroDecimalConvertido
 })
 
+// Calculadora Decimal p/ Binário
 let $botaoCalcularDecBin = document.querySelector("#botao-calcular-dec-bin")
 $botaoCalcularDecBin.addEventListener('click',(event)=>{
   event.preventDefault
@@ -41,7 +43,6 @@ $botaoCalcularDecBin.addEventListener('click',(event)=>{
   let resto = 0
 
   while (quociente > 0) {
-
     resto = quociente %2
 
     arrayDeBinarios.push(resto)
@@ -51,6 +52,35 @@ $botaoCalcularDecBin.addEventListener('click',(event)=>{
   $binario2.value = arrayDeBinarios.reverse().join("")
 })
 
+// Calculadora Decimal p/ Hexadecimal
+let $botaoCalcularDecHex = document.querySelector("#botao-calcular-dec-hex")
+$botaoCalcularDecHex.addEventListener("click", (event)=>{
+  event.preventDefault
+
+  let $hexadecimalDecHex = document.querySelector("#valor-hexadecimal-dec-hex")
+  let $decimalDecHex = document.querySelector("#valor-decimal-dec-hex").value
+
+  let arrayDeHexadecimal = []
+  let quociente = Math.floor($decimalDecHex / 16)
+  let primeiroResto = $decimalDecHex % 16
+
+  arrayDeHexadecimal.push(primeiroResto)
+
+  let resto = 0
+  
+  while (quociente > 0){
+    resto = quociente % 16
+    arrayDeHexadecimal.push(resto)
+    quociente = Math.floor(quociente / 16)
+  }
+
+  let substituicoes = {10:"A", 11:"B", 12:"C", 13:"D", 14:"E", 15:"F"}
+  let arrayDeHexadecimalConvertido = arrayDeHexadecimal.map(decimal => substituicoes[decimal] || decimal)
+
+  $hexadecimalDecHex.value = arrayDeHexadecimalConvertido.reverse().join("")
+})
+
+// Calculadora Hexadecimal p/ Binário 
 document.querySelector("#valor-hexadecimal-hex-bin").addEventListener('keydown', (event)=>{
   if (!["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "a", "b", "c", "d", "e", "f", "Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab"].includes(event.key)) {
       event.preventDefault();
