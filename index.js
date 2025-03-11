@@ -50,3 +50,21 @@ $botaoCalcularDecBin.addEventListener('click',(event)=>{
   }
   $binario2.value = arrayDeBinarios.reverse().join("")
 })
+
+document.querySelector("#valor-hexadecimal-hex-bin").addEventListener('keydown', (event)=>{
+  if (!["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "a", "b", "c", "d", "e", "f", "Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab"].includes(event.key)) {
+      event.preventDefault();
+    }
+})
+
+let $botaoCalcularHexBin = document.querySelector("#botao-calcular-hex-bin")
+$botaoCalcularHexBin.addEventListener('click', (event)=>{
+  event.preventDefault
+
+  let $binarioHexBin = document.querySelector("#valor-binario-hex-bin")
+  let $hexadecimalHexBin = document.querySelector("#valor-hexadecimal-hex-bin").value.toUpperCase()
+
+  let hexadecimalTransformado = $hexadecimalHexBin.replaceAll("0","0000").replaceAll("1","0001").replaceAll("2","0010").replaceAll("3","0011").replaceAll("4","0100").replaceAll("5","0101").replaceAll("6","0110").replaceAll("7","0111").replaceAll("8","1000").replaceAll("9","1001").replaceAll("A","1010").replaceAll("B","1011").replaceAll("C","1100").replaceAll("D","1101").replaceAll("E","1110").replaceAll("F","1111")
+  
+  $binarioHexBin.value = hexadecimalTransformado
+})
